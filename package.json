@@ -1,15 +1,24 @@
 {
   "name": "mongo-simple-adapter",
-  "version": "0.0.1",
-  "description": "",
+  "version": "0.0.2",
+  "description": "Simple adapter for interaction with mongo db database.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test.js"
   },
   "keywords": [],
   "author": "Nir Adler",
   "license": "ISC",
   "dependencies": {
     "mongodb": "^3.1.10"
-  }
+  },
+  "bugs": "https://github.com/niradler/mongo-simple-adapter/issues",
+  "homepage": "https://github.com/niradler/mongo-simple-adapter",
+  "keywords": [
+    "mongo",
+    "mongodb",
+    "adapter",
+    "simple"
+  ],
+   "repository": "https://github.com/niradler/mongo-simple-adapter"
 }
