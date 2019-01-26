@@ -1,6 +1,6 @@
 {
   "name": "mongo-simple-adapter",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Simple adapter for interaction with mongo db database.",
   "main": "index.js",
   "scripts": {
