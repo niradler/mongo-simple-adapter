@@ -70,7 +70,7 @@ const getDatabases = async () =>{
 
 const createDatabase = async (databaseName) =>{
     try {
-        const client = await connect(databaseName);
+        const client = await connect();
         const dbo = client.db(databaseName);
         if(dbo) return true;
         return false;
@@ -81,7 +81,7 @@ const createDatabase = async (databaseName) =>{
 
 const deleteDatabase = async (databaseName) =>{
     try {
-        const client = await connect(databaseName);
+        const client = await connect();
         const dbo = client.db(databaseName);
         const data = await dbo.dropDatabase();
         return data;
