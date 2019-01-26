@@ -18,3 +18,7 @@
 - insert,
 - update,
 - remove
+
+### ENV
+
+set MONGO_URI or default to localhost
