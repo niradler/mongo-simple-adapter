@@ -1,10 +1,10 @@
 const MongoClient = require('mongodb').MongoClient;
-const MONGO_URL = 'mongodb://localhost' || process.env.MONGO_URI;
+const MONGO_URL = process.env.MONGO_URI || 'mongodb://localhost';
 let db = null;
-const connect = async (dbName ='') => {
+const connect = async () => {
     try {
         if(db) return db;
-        const client = await MongoClient.connect(`${MONGO_URL}/${dbName}`,{ useNewUrlParser: true });
+        const client = await MongoClient.connect(`${MONGO_URL}`,{ useNewUrlParser: true });
         db = client;
         return client;
     } catch (error) {

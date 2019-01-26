@@ -1,1 +1,4 @@
 # mongo-simple-adapter
+
+## API
+

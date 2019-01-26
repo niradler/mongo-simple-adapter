@@ -1,5 +1,5 @@
 const {connect,test} = require('./db');
-let dbName = "";
+let dbName = "admin";
 
 const setDbName = (DbName) =>dbName = DbName;
 
@@ -35,6 +35,28 @@ const getCollections = async () =>{
     }
 }
 
+const createCollection = async (name) =>{
+    try {
+        const client = await connect();
+        const dbo = client.db(dbName);
+        const collection = await dbo.createCollection(name);
+        return collection;
+    } catch (error) {
+        throw error;
+    }
+}
+
+const deleteCollection = async (name) =>{
+    try {
+        const client = await connect();
+        const dbo = client.db(dbName);
+        const collection = await dbo.collection(name).drop();
+        return collection;
+    } catch (error) {
+        throw error;
+    }
+}
+
 const getDatabases = async () =>{
     try {
         const client = await connect();
@@ -52,6 +74,17 @@ const createDatabase = async (databaseName) =>{
         const dbo = client.db(databaseName);
         if(dbo) return true;
         return false;
+    } catch (error) {
+        throw error;
+    } 
+}
+
+const deleteDatabase = async (databaseName) =>{
+    try {
+        const client = await connect(databaseName);
+        const dbo = client.db(databaseName);
+        const data = await dbo.dropDatabase();
+        return data;
     } catch (error) {
         throw error;
     } 
@@ -109,7 +142,10 @@ module.exports = {
     getMongoClientDb,
     getMongoClient,
     getCollections,
+    createCollection,
+    deleteCollection,
     getDatabases,
+    deleteDatabase,
     createDatabase,
     find,
     insert,
